@@ -31,10 +31,10 @@ router.get('/getall',(req,res) =>{
     });
 })
 //  ':' colon refers that url parameter
-router.get('/getbyusername/:username',(req,res) =>{
+router.get('/getbyowner/:ownerid',(req,res) =>{
     console.log(req.params.username);
     // res.send('😎');
-    Model.find({username : req.params.username})
+    Model.find({owner : req.params.ownerid})
     .then((result) => {
         console.log(result);
         res.json(result);

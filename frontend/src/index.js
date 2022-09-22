@@ -3,13 +3,30 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Plugin from './components/Plugin';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootEl = document.getElementById('root');
+
+if(rootEl){
+const root = ReactDOM.createRoot(rootEl);
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+}
+
+const pluginEl = document.getElementById('plugin');
+
+if(pluginEl){
+const root = ReactDOM.createRoot(pluginEl);
+const ownerid = pluginEl.getAttribute('ownerid');
+root.render(
+  <React.StrictMode>
+    <Plugin ownerid={ownerid} />
+  </React.StrictMode>
+);
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

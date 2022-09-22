@@ -20,6 +20,12 @@ const Login = () => {
         icon : 'success',
         title : 'Login'
       })
+
+      response.json()
+      .then(data => {
+        sessionStorage.setItem('user', JSON.stringify(data));
+      })
+
     }else if((response.status === 401)){
       Swal.fire({
         icon : 'success',

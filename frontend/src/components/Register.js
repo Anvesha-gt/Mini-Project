@@ -1,7 +1,11 @@
 import React from "react";
 import { Formik } from "formik";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+  
+  const navigate = useNavigate();
+
   const loginSubmit = async (formdata, { resetForm }) => {
     console.log(formdata);
     resetForm();
@@ -16,8 +20,9 @@ const Register = () => {
     if (response.status === 200) {
       Swal.fire({
         icon: "success",
-        title: "Logedin",
+        title: "Registered Successfully",
       });
+      navigate('/login');
     } else if (response.status === 401) {
       Swal.fire({
         icon: "success",
@@ -133,7 +138,7 @@ const Register = () => {
                         <div className="d-flex justify-content-center">
                           <button
                             type="submit"
-                            className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                            className="btn btn-success btn-block btn-lg gradient-custom-4"
                           >
                            <h4>Register</h4> 
                           </button>
