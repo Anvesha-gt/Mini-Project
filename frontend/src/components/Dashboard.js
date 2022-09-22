@@ -1,76 +1,95 @@
 import {Formik} from 'formik';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
 
-const UpdateUser = ({userFormData}) => {
-
-    const userSubmit = async (formdata) => {
-        console.log(formdata);
-
-        // 1. url
-        // 2. request method
-        // 3. data
-        // 4. data format
-
-        // asynchronous function - returns promise
-        const response = await fetch( 'http://localhost:5000/subscriber/'+formdata._id, {
-            method : 'PUT',
-            body : JSON.stringify(formdata),
-            headers : {
-                'Content-Type' : 'application/json'
-            }
-        })       
-        console.log(response.status);
-        
-        if(response.status === 200){
-            console.log('user data added!');
-            Swal.fire({
-                icon: 'success',
-                title: 'Nice ',
-                text : 'Updatd Successfully'
-              })
-            
-
-        }
-
-        console.log('request sent');
-    }
+const Dashboard = () => {
+    // const [usersList,setUsersList] = useState([]);
     
-    return (
-        <div className='container'>
-            <div className="card">
-                <div className="card-body">
-                    <h3 className="text-center">Register Here</h3>
-                    <Formik
-                        initialValues={userFormData}
-                        onSubmit={userSubmit}
-                    >
-                        {({values, handleSubmit, handleChange}) => (
-                            <form onSubmit={handleSubmit}>
-                            <label className='mt-5'>Username</label>
-                            <input className='form-control' id="username" onChange={handleChange} value={values.username} />
-                            
-                            <label className='mt-3'>Email</label>
-                            <input className='form-control' id="email" onChange={handleChange} value={values.email} />
-                            
-                            <label className='mt-3'>Password</label>
-                            <input className='form-control' id="password" onChange={handleChange} value={values.password} />
-                            
-                            <label className='mt-3'>Age</label>
-                            <input className='form-control' id="age" onChange={handleChange} value={values.age} />
     
-                            <button type="submit" className='btn btn-primary mt-5'>Submit</button>
-    
-                        </form>
-                        )}
-                    </Formik>
-                    
-                </div>
-            </div>
-        </div>
-    )
-
+    const [usersList, setUsersList] = useState([]);
+    const [showForm, setShowForm] = useState(false);
+    const [userFormData,setUserFormData] = useState(null);
   
-}
+  const getDataFromBackend = async() =>{
+      const response = await fetch ('http://localhost:5000/subscriber/getall')
+      const  data = await  response.json();
+      console.log(data);
+      // store data in state
+      setUsersList(data);
+      console.log('request sent');
+  }
+  
+  useEffect(() => {
+  getDataFromBackend();
+  }, [])
+  // nfn shortcut
+  
+  const deleteUser =async (id) => { 
+    // console.log(id);
+    const response = await fetch('http://localhost:5000/user/delete/'+id,{
+      method : 'DELETE'
+    })
+    console.log(response.status);
+    getDataFromBackend();
+    // import toast fromm 'react-hot-toast';
+    //   toast.success('User Deleted ☠');
+      console.log('User Deleted ☠');
+   }
+  
+   const editUser = (userdata) => {
+    console.log(userdata);
+    setUserFormData(userdata);
+    setShowForm(true);
+  
+   }
+  
+  const showUsers = () =>{
+    return <table className='table table-white table-striped'>
+    <thead>
+    <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th></th>
+  
+    </tr>
+    </thead>
+    <tbody>
+    {
+      usersList.map( (user) => (
+        <tr>
+        <td>{user._id}</td>
+        <td>{user.email}</td>
+          <td>{user.username}</td>
+          <td>{user.age}</td>
+          <td>
+          <button className='btn btn-outline- primary' onClick={() => { editUser(user) }}>
+          <i class="fas fa-pencil-alt"></i>
+                  </button></td>
+                  <td>
+                  <button className='btn btn-outline-danger'  onClick={()=> {deleteUser(user._id)}}>
+                  <i class="fas fa-trash-alt"></i>  
+                </button>
+                  </td>
+        </tr>
+      ))
+    }
+    </tbody>
+    </table>
+  }
+  
+    return (
+      <div className='container'>
+      <h1 className="text-center">Dashboard</h1>
+      <button onClick={getDataFromBackend}>Refresh</button>
+      <div className="row">
+      <div className="col-md">
+      {showUsers()}
+      </div>
+      
+      </div>
+      </div>
+  
+    )
+  }
 
-export default UpdateUser
+  export default Dashboard;

@@ -64,6 +64,11 @@ const Header = () => {
                 Dashboard
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/NotFound">
+                NotFound
+                </NavLink>
+              </li>
             </ul>
             {/* Left links */}
           </div>

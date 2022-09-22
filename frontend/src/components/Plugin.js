@@ -5,7 +5,7 @@ const Plugin = () => {
   const loginSubmit = async (formdata, { resetForm }) => {
     console.log(formdata)
     resetForm();
-    const response = await fetch('http://localhost:5000/user/add', {
+    const response = await fetch('http://localhost:5000/subscriber/add', {
       method: 'POST',
       body : JSON.stringify(formdata),
             headers : {
@@ -16,7 +16,7 @@ const Plugin = () => {
     if(response.status === 200){
       Swal.fire({
         icon : 'success',
-        title : 'Logedin'
+        title : 'Subscribe'
       })
     }else if((response.status === 401)){
       Swal.fire({
@@ -53,17 +53,19 @@ const Plugin = () => {
             >
               <div className="card-body p-5 shadow-5 text-center">
                 <h2 className="fw-bold mb-5">Newsletter</h2>
-                <Formik initialValues={{email:'', password :''}} onSubmit={loginSubmit} >
+                <Formik initialValues={{email:'', name :'', owner: '', createdAt: new Date()}} onSubmit={loginSubmit} >
       {({values, handleSubmit,handleChange}) => (
 
-                <form>
+                <form onSubmit={handleSubmit}>
                   {/* 2 column grid layout with text inputs for the first and last names */}
                   <div className="row">
                     <div className="col-md-6 mb-4">
                       <div className="form-outline">
                         <input
                           type="text"
-                          id="form3Example1"
+                          id="name"
+                          onChange={handleChange}
+                          value={values.name}
                           className="form-control"
                         />
                         <label className="form-label" htmlFor="form3Example1">
@@ -76,7 +78,9 @@ const Plugin = () => {
                   <div className="form-outline mb-4">
                     <input
                       type="email"
-                      id="form3Example3"
+                      id="email"
+                          onChange={handleChange}
+                          value={values.email}
                       className="form-control"
                     />
                     <label className="form-label" htmlFor="form3Example3">
@@ -102,11 +106,11 @@ const Plugin = () => {
                     type="submit"
                     className="btn btn-primary btn-block mb-4"
                   >
-                    Sign up
+                    Subscribe
                   </button>
                   {/* Register buttons */}
                   <div className="text-center">
-                    <p>or sign up with:</p>
+                    <p>or subscribe with:</p>
                     <button
                       type="button"
                       className="btn btn-link btn-floating mx-1"

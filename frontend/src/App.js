@@ -10,6 +10,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Plugin from './components/Plugin';
 import Dashboard from './components/Dashboard';
+import NotFound from './components/NotFound';
+
 
 // import UserManager from './components/UserManager';
 //  import { Toaster } from 'react-hot-toast';
@@ -29,7 +31,6 @@ function App() {
           <Route element={<Home></Home>} path="home" />
           <Route element={<Login></Login>} path="Login" />
           <Route element={<Register></Register>} path="Register" />
-          <Route element={<Authorize ></Authorize >} path="Authorize" />
           <Route element={<Plugin></Plugin>} path="Plugin" />
           <Route element={<Dashboard></Dashboard >} path="Dashboard" />
 

@@ -2,6 +2,8 @@
 const express = require('express');
 // importing  express module then given a path Absolute  path Or Relative path 
 const userRouter = require('./routers/userRouter')
+const SubscriberRouter = require('./routers/SubscriberRouter')
+
 // const videoRouter = require('./routers/videoRouter')
 const cors = require('cors');
 // initializing express app
@@ -16,6 +18,7 @@ app.use(cors({
 }))
 // Hotel(midleware)
 app.use('/user', userRouter);
+app.use('/subscriber', SubscriberRouter);
 
 // app.use('/video',videoRouter);
 
