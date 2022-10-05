@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <div
-        className="bg-image"
+        className="bg-image "
         style={{
           backgroundImage:
             "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlvQYpUX639cJci-Y9z8CgP3uVVz1vKiVboA&usqp=CAU')",
