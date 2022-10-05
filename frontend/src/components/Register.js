@@ -103,21 +103,7 @@ const Register = () => {
                             Password
                           </label>
                         </div>
-                        <div className="form-outline mb-4">
-                          <input
-                            type="password"
-                            id="password"
-                            value={values.password}
-                            onChange={handleChange}
-                            className="form-control form-control-lg"
-                          />
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example4cdg"
-                          >
-                            Repeat your password
-                          </label>
-                        </div>
+                        
                         <div className="form-check d-flex justify-content-center mb-5">
                           <input
                             className="form-check-input me-2"

@@ -1,3 +1,39 @@
-.head1{
-    text-decoration: underline;
-    }
+
+  .thumbnail{
+
+    height: 200px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+  }
+  .my-card-body{
+    height: 500px;
+  }
+  .mybtn{
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+
+  }
+  .mybtn1{
+    position: absolute;
+    left: 10px;
+    bottom: 2px;
+  }
+  /* .thumbnail:hover{
+    
+    background-color: rgb(93, 130, 125);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff5d05;
+    font-style: italic;
+       
+  } */
+  .card{
+    margin-top: 30px;
+
+  }
+
+  .bg{
+    height: 100vh;
+  }

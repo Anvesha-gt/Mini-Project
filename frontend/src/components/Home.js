@@ -1,18 +1,21 @@
-// 
-import React from 'react'
-import'./Home.css';
-import logo from '../logo.svg';
+import React from "react";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+
 const Home = () => {
-  return (   
-    // in return only one <div> tag can use if u want many more u, u can  use dummy tag like this<> </>
-     <div>
-    <h1 className="head1" style={{ color:'red', backgroundColor: 'yellow' }}>My Home Page</h1>
-   <hr/>
-  
-   <img src={logo}/>
-    </div>
-
-  )
-}
-
-export default Home
+  return (
+    <>
+      <div
+        className="bg-image"
+        style={{
+          backgroundImage:
+            "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlvQYpUX639cJci-Y9z8CgP3uVVz1vKiVboA&usqp=CAU')",
+height: "100vh",
+        }}
+      >
+       
+      </div>
+    </>
+  );
+};
+export default Home;

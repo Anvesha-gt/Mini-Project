@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-md navbar-light bg-light">
+      <nav className="navbarh navbar-expand-md navbar-light bg-light">
         {/* Container wrapper */}
         <div className="container-fluid">
           {/* Toggle button */}
@@ -30,9 +30,9 @@ const Header = () => {
             {/* Navbar brand */}
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
               <img
-                src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                height={15}
-                alt="MDB Logo"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzgq_jT9BF6lXBNi651RfL0HN-PZK24YStGg&usqp=CAU"
+                height={40}
+                alt="logo"
                 loading="lazy"
               />
             </a>
@@ -43,12 +43,12 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
+              
               <li className="nav-item">
                 <NavLink className="nav-link" to="/login">
                   Login
                 </NavLink>
               </li>
-              
               <li className="nav-item">
                 <NavLink className="nav-link" to="/register">
                   Register
@@ -64,82 +64,11 @@ const Header = () => {
                 Dashboard
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/NotFound">
-                NotFound
-                </NavLink>
-              </li>
+          
             </ul>
-            {/* Left links */}
-          </div>
-          {/* Collapsible wrapper */}
-          {/* Right elements */}
-          <div className="d-flex align-items-center">
-            {
-              loggedin ?
-              <button className='btn btn-outline-danger' 
-              onClick={ e => { setLoggedin(false) } }>Logout</button>
-              :
-              <button className='btn btn-link' onClick={ e => { setLoggedin(true) } }>Login</button>
-            }
-            {/* Icon */}
-            <a className="text-reset me-3" href="#">
-              <i className="fas fa-shopping-cart" />
-            </a>
-            {/* Notifications */}
-            <div className="dropdown">
-              <a
-                className="text-reset me-3 dropdown-toggle hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="fas fa-bell" />
-                <span className="badge rounded-pill badge-notification bg-danger">
-                  1
-                </span>
-              </a>
-              <ul
-                className="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Some news
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another news
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
             </div>
             {/* Avatar */}
-            <div className="dropdown">
-              <a
-                className="dropdown-toggle d-flex align-items-center hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuAvatar"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                  className="rounded-circle"
-                  height={25}
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                />
-              </a>
+            
               <ul
                 className="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuAvatar"
@@ -154,16 +83,12 @@ const Header = () => {
                     Settings
                   </a>
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Logout
-                  </a>
-                </li>
+                
               </ul>
             </div>
-          </div>
+        
           {/* Right elements */}
-        </div>
+      
         {/* Container wrapper */}
       </nav>
       {/* Navbar */}

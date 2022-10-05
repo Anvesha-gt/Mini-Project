@@ -10,7 +10,6 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Plugin from './components/Plugin';
 import Dashboard from './components/Dashboard';
-import NotFound from './components/NotFound';
 
 
 // import UserManager from './components/UserManager';
