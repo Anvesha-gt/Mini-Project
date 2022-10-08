@@ -17,7 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts  start",
     "build": "react-scripts build",
     "build:widget": "parcel build src/index.js --no-source-maps",
     "test": "react-scripts test",
