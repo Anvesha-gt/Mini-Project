@@ -51,6 +51,8 @@ const Dashboard = () => {
           <tr>
             <th>ID</th>
             <th>Email</th>
+            <th>Name</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -113,6 +115,12 @@ const Dashboard = () => {
   return (
     <div className="container">
       <h1 className="text-center">Dashboard</h1>
+      
+      <div className="card my-4">
+      <div className="card-body">
+          <h3>Your Owner Id : {currentUser._id}</h3>
+      </div>
+      </div>
       <button onClick={getDataFromBackend}>Refresh</button>
       <div className="row">
         <div className="col-md">{showUsers()}</div>
